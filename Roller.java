@@ -4,7 +4,6 @@ import java.io.Console;
 
 public class Roller {
 
-
     public int roll6() {
         Random rand = new Random();
         return rand.nextInt((6-1)+1) + 1;
@@ -23,13 +22,8 @@ public class Roller {
         return outcome;
     }
 
-
-
-
-
     public void rollAbilityScores() {
         Console console = System.console();
-        // String outcome = Integer.toString(roll6());
         int[] outcome = rollAbilityRoll(4);
         int total = 0;
 
@@ -37,8 +31,11 @@ public class Roller {
             total += outcome[i];
         }
 
-        console.printf("rolling the outcome: %d and %d and %d for a total of %d %n ---------------------------------- %n", outcome[0], outcome[1], outcome[2], total);
-
+        console.printf("rolling the outcome: %d and %d and %d for a total of %d %n ---------------------------------- %n", 
+                        outcome[0], 
+                        outcome[1], 
+                        outcome[2], 
+                        total);
     }
 
 }

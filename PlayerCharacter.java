@@ -26,4 +26,8 @@ public class PlayerCharacter {
         console.printf("Your character's level is %s\n", playerLevel);
         this.playerLevel = Integer.parseInt(playerLevel);
     }
+
+    public String getPlayerName() {
+        return this.playerName;
+    }
 }
