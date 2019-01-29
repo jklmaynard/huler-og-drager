@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Random;
+import java.util.Arrays;
 import java.io.Console;
 
 public class Roller {
@@ -9,26 +10,34 @@ public class Roller {
         return rand.nextInt((6-1)+1) + 1;
     }
 
+    public int[] rollAbilityRoll(int numberOfRolls) {
+        int[] initialRoll = new int[numberOfRolls];
+        int[] outcome = new int[numberOfRolls-1];
 
-    // NEXT STEP: UNDERSTAND ARRAYS TO FINISH THIS METHOD
-    // public void rollAbilityRoll() {
-    //     Console console = System.console();
-    //     Random rand = new Random();
-    //     ArrayList abilityArray = new ArrayList();
+        for (int i = 0; i < numberOfRolls; i++) {
+            initialRoll[i] = roll6();
+        }
+        Arrays.sort(initialRoll);
+        System.arraycopy(initialRoll, 1, outcome, 0, 3);
+        
+        return outcome;
+    }
 
-    //     for (int i = 0; i < abilityArray.length; i++) {
-    //         abilityArray[i] = roll6();
-    //     }
 
-    //     console.printf("rolling first ability score roll: \n");
-    //     abilityArray.forEach(System.out::println);
-    // }
+
+
 
     public void rollAbilityScores() {
         Console console = System.console();
-        String outcome = Integer.toString(roll6());
+        // String outcome = Integer.toString(roll6());
+        int[] outcome = rollAbilityRoll(4);
+        int total = 0;
 
-        console.printf("rolling the outcome: %s\n", outcome);
+        for (int i = 0; i < outcome.length; i++) {
+            total += outcome[i];
+        }
+
+        console.printf("rolling the outcome: %d and %d and %d for a total of %d %n ---------------------------------- %n", outcome[0], outcome[1], outcome[2], total);
 
     }
 
